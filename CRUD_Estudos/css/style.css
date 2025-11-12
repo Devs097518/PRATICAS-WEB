@@ -1,0 +1,36 @@
+body{
+    background-color: rgb(255, 220, 226);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#container{
+    width: 500px;
+    margin: auto;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+a{
+    text-decoration: none;
+    color: rgb(141, 31, 108);
+}
+
+input{
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+td{
+    padding: 10px;
+}
+
+th{
+    background-color: rgb(175, 174, 214);
+}
+

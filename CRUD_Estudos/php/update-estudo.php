@@ -20,13 +20,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $cadeira = $_POST['cadeira'];
     $situacao = $_POST['situacao'];
     $notas = $_POST['notas'];
-    
+
     // Prepara a instrução SQL para atualizar os dados do aluno
     $stmt = $pdo->prepare("UPDATE estudos SET cadeira = ?, situacao = ?, notas = ? WHERE id = ?");
-    
+
     // Executa a instrução SQL com os novos dados do formulário
     $stmt->execute([$cadeira, $situacao, $notas, $id]);
-    
+
     // Redireciona para a página de listagem de alunos após a atualização
     header('Location: index-estudo.php');
 }
@@ -34,49 +34,56 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Estudos</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 </head>
+
 <body>
-    <header>
-        <h1>Bem vindo ao Sistema de Gerenciamento do Status dos Estudos</h1>
-        <nav>
-            <ul>
-                <li><a href="../index.php">Home</a></li>
-                <li><a href="index-estudo.php">Listar Disciplinas</a></li>
-                <li><a href="create-estudo.php">Adicionar Estudos</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div id="container">
+        <header>
+            <h1>Bem vindo ao Sistema de Gerenciamento do Status dos Estudos</h1>
+            <nav>
+                <ul>
+                    <li><a href="../index.php">Home</a></li>
+                    <li><a href="index-estudo.php">Listar Disciplinas</a></li>
+                    <li><a href="create-estudo.php">Adicionar Estudos</a></li>
+                </ul>
+            </nav>
+        </header>
 
-    <main>
-        <h2>Editar Estudo</h2>
-        <!-- Formulário para editar os dados do aluno -->
-        <form method="POST">
-            <label for="cadeira">Cadeira:</label>
-            <!-- Campo para inserir o nome do aluno -->
-            <input type="text" id="cadeira" name="cadeira" value="<?= $estudo['cadeira'] ?>" required>
-            
-            <label for="situacao">Situacao:</label>
-            <!-- Campo para inserir a matrícula do aluno -->
-            <input type="text" id="situacao" name="situacao" value="<?= $estudo['situacao'] ?>" required>
-            
-            
-            <label for="notas">Notas:</label>
-            <!-- Campo para inserir a matrícula do aluno -->
-            <input type="text" id="notas" name="notas" value="<?= $estudo['notas'] ?>" required>
+        <main>
+            <h2>Editar Estudo</h2>
+            <!-- Formulário para editar os dados do aluno -->
+            <form method="POST">
+                <label for="cadeira">Cadeira:</label>
+                <!-- Campo para inserir o nome do aluno -->
+                <input type="text" id="cadeira" name="cadeira" value="<?= $estudo['cadeira'] ?>" required>
 
-            
-            <!-- Botão para submeter o formulário -->
-            <button type="submit">Atualizar</button>
-        </form>
-    </main>
+                <label for="situacao">Situacao:</label>
+                <!-- Campo para inserir a matrícula do aluno -->
+                <input type="text" id="situacao" name="situacao" value="<?= $estudo['situacao'] ?>" required>
 
-    <footer>
-        <p>&copy; 2025 - Sistema de Gerenciamento de Status dos Estudos</p>
-    </footer>
+
+                <label for="notas">Notas:</label>
+                <!-- Campo para inserir a matrícula do aluno -->
+                <input type="text" id="notas" name="notas" value="<?= $estudo['notas'] ?>" required>
+
+
+                <!-- Botão para submeter o formulário -->
+                <button type="submit">Atualizar</button>
+            </form>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 - Sistema de Gerenciamento de Status dos Estudos</p>
+        </footer>
+    </div>
+
 </body>
+
 </html>
