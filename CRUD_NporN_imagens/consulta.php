@@ -136,6 +136,7 @@ if(isset($_GET['editar'])) {
             <td>
                 <a href="?editar=<?= $c['id'] ?>">Editar</a> |
                 <a href="?deletar=<?= $c['id'] ?>" onclick="return confirm('Deseja realmente deletar?')">Deletar</a>
+                <a href="gerar_relatorio_consulta.php?id=<?= $c['id'] ?>" target="_blank">PDF</a>
             </td>
         </tr>
         <?php endforeach; ?>
